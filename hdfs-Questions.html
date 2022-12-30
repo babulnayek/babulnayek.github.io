@@ -1,1 +1,39 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+  <h2>Generic</h2>
+    <ul>
+<li><strong>hadoop fs -ls &lt;path&gt;</strong> list files in the path of the file system</li>
+<li><strong>hadoop fs -chmod &lt;arg&gt; &lt;file-or-dir&gt; </strong>alters the permissions of a file where &lt;arg&gt; is the binary argument e.g. 777</li>
+<li><strong>hadoop fs -chown &lt;owner&gt;:&lt;group&gt; &lt;file-or-dir&gt; </strong>change the owner of a file</li>
+<li><strong>hadoop fs -mkdir &lt;path&gt; </strong>make a directory on the file system</li>
+<li><strong>hadoop fs -put &lt;local-origin&gt; &lt;destination&gt;</strong> copy a file from the local storage onto file system</li>
+<li><strong>hadoop fs -get &lt;origin&gt; &lt;local-destination&gt;</strong> copy a file to the local storage from the file system</li>
+<li><strong>hadoop fs -copyFromLocal &lt;local-origin&gt; &lt;destination&gt;</strong> similar to the put command but the source is restricted to a local file reference</li>
+<li><strong>hadoop fs -copyToLocal &lt;origin&gt; &lt;local-destination&gt; </strong>similar to the get command but the destination is restricted to a local file reference</li>
+<li><strong>hadoop fs -touchz</strong> create an empty file on the file system</li>
+<li><strong>hadoop fs -cat &lt;file&gt; </strong>copy files to stdout</li>
+</ul>
+    <h2>Yarn commands</h2>
+    <ul>
+<li><strong>yarn node -list</strong> list nodes in the yarn cluster</li>
+<li><strong>yarn node -status &lt;node id&gt; </strong>status of a node (memory used, free, number of containers, etc) for &lt;node id&gt; (first column from command above)</li>
+<li><strong>yarn application -list</strong> list of Yarn applications and their state</li>
+<li><strong>yarn logs -applicationId &lt;appid&gt;</strong> dump the logs for a particular application</li>
+</ul>
+    <h2>Configuration commands</h2>
+    <ul>
+<li><strong>hdfs getconf</strong> return various configuration settings in effect</li>
+<li><strong>hdfs getconf -namenodes</strong> namenodes in the cluster</li>
+<li><strong>hdfs getconf -confkey &lt;a.value&gt;</strong> return the value of a particular setting (e.g. dfs.replication)</li>
+</ul>
+    <h2>HDFS commands</h2>
+    <ul>
+<li><strong>hdfs dfsadmin -safemode get </strong>find out if you’re in safemode</li>
+<li><strong>hdfs dfsadmin -report</strong> find out how much disk space us used, free, under-replicated, etc.</li>
+</ul>
+  </body>
+</html>
