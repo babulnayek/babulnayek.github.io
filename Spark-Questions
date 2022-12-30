@@ -1,0 +1,61 @@
+1. What is Apache Spark? Explain it's usage.
+
+Apache Spark is an open-source analytics engine which provides a unified interface for processing large-scale data. It offers many high-level APIs in SQL, R, Python and Java. Apache Spark provides many libraries and tools such as GraphX for graph processing, MLlib for machine learning, Spark SQL for SQL data processing and Structural Streaming for stream processing. For more visit Apache Spark.
+
+2. Explain Job, Stage and Task in Spark.
+
+Apache Spark execution plan consists of Job, Stage and Task. Let's understand each one of them.
+Job can be defined as a sequence of multiple stages which are triggered by some action such as collect(), read(), write() etc.
+Stage can be defined as a sequence of independent tasks where each task computes the same function which needs to be run as part of spark Job. A stage can have two types as below.
+Shuffle Map Stage - Where tasks results of this stage work as input for another stage.
+Result Stage - Where tasks directly perform the action that initiated the job such as count(), save() etc.
+For more visit Stage Class in Spark.
+Task can be defined as a single executable thread which performs an operation such as .map or .filter that applies to a single partition.
+3. Explain about Shared Variables and its types.
+
+Naturally, When a Spark cluster node executes a function as a set of tasks, it has a separate copy of variables used in the function for each task. Each machine or node contains a copy of these variables and when these variables are updated then there is no way to reflect back these updated variables to the spark driver program. Sometimes variables need to be shared between tasks and the driver program or across tasks.
+To overcome this limitation, Apache Spark offers two types of Shared Variables which can be used by many functions in parallel operations or across tasks.
+Broadcast Variables allows you to keep read-only variables cached on all nodes instead of shipping the copy of variables to each node.
+Accumulators are the variables which can be added to through a commutative operation such as counters and sums.
+For more visit Shared variables in Spark.
+4. Explain RDD, Dataframe and DataSet in Apache Spark.
+
+Resilient Distributed Dataset (RDD) is an immutable, fault-tolerant distributed collection of elements of your data that can be operated in parallel with low level API which provides some actions and transformations. RDDs are partitioned over nodes in your cluster. For more visit RDD in Spark and When to use RDDs.
+A DataSet is a strongly-typed distributed collection of data or objects mapped to relational schema. DataSet is added in Spark 1.6 which offers some good capabilities like strongly-typed, ability to use lambda functions etc. You can construct DataSet from JVM objects and can perform transformations using functions such as map, flatmap, filter etc. Scala and Java both offer DataSet API. For more visit DataSet in Spark and Working with DataSets.
+A DataFrame can be defined as a distributed collection of data organized into named columns. Conceptually, It is equivalent to a table in relational databases (SQL Server, PostgreSQL, MySQL etc) or DataFrame in Python/R but provides very rich optimizations. You can construct a DataFrame from a wide list of sources such as existing RDDs, structured data files, external databases or tables in Hive. For more visit DataFrames in Spark.
+5. How will you differentiate groupByKey and reduceByKey in spark?
+
+
+6. In which file format spark save the files?
+
+7. How will you differentiate coalesce and repartition?
+
+8. Differentiate map and flatmap.
+
+9. Spark configuration related questions.
+
+There may be many questions related to spark configuration. For more about spark configuration visit Spark Configuration.
+
+10. What are the parameters which are passed to launch the applications with spark-submit command.
+
+For more visit spark submit command.
+
+11. What happens when you enter the spark submit command?
+
+12. How does a spark worker execute a jar file?
+
+13. Explain the broadcast join.
+
+14. Explain some performance optimization techniques in Spark.
+
+15. Explain the memory management in Spark.
+
+Some General Interview Questions for Spark
+1. How much will you rate yourself in Spark?
+
+When you attend an interview, Interviewer may ask you to rate yourself in a specific Technology like Spark, So It's depend on your knowledge and work experience in Spark.
+
+2. What challenges did you face while working on Spark?
+
+This question may be specific to your technology and completely depends on your past work experience. So you need to just explain the challenges you faced related to Spark in your Project.
+
