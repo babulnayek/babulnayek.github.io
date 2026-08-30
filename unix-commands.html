@@ -17,38 +17,139 @@
 
 <body>
 
-<div class="header">Unix Commands</div>
+<div class="header">Unix Commands (Complete Reference)</div>
 
 <div class="container">
 
-  <h2>1. File Listing</h2>
-  <pre><code>ls -l</code></pre>
-  <pre><code>ls -la</code></pre>
+<!-- BASIC UNIX COMMANDS -->
+<h2>1. Basic File Listing</h2>
+<pre><code>ls -l</code></pre>
+<pre><code>ls -la</code></pre>
 
-  <h2>2. Change Directory</h2>
-  <pre><code>cd /path/to/dir</code></pre>
+<h2>2. Change Directory</h2>
+<pre><code>cd /path/to/dir</code></pre>
 
-  <h2>3. View File</h2>
-  <pre><code>cat file.txt</code></pre>
-  <pre><code>tail -n 50 file.txt</code></pre>
-  <pre><code>head -n 50 file.txt</code></pre>
+<h2>3. View File</h2>
+<pre><code>cat file.txt</code></pre>
+<pre><code>tail -n 50 file.txt</code></pre>
+<pre><code>head -n 50 file.txt</code></pre>
 
-  <h2>4. Search in File</h2>
-  <pre><code>grep "error" file.txt</code></pre>
-  <pre><code>grep -r "pattern" /path</code></pre>
+<h2>4. Search in File</h2>
+<pre><code>grep "error" file.txt</code></pre>
+<pre><code>grep -r "pattern" /path</code></pre>
 
-  <h2>5. Disk Usage</h2>
-  <pre><code>df -h</code></pre>
-  <pre><code>du -sh /path</code></pre>
+<h2>5. Disk Usage</h2>
+<pre><code>df -h</code></pre>
+<pre><code>du -sh /path</code></pre>
 
-  <h2>6. Permissions</h2>
-  <pre><code>chmod 755 script.sh</code></pre>
-  <pre><code>chown user:group file.txt</code></pre>
+<h2>6. Permissions</h2>
+<pre><code>chmod 755 script.sh</code></pre>
+<pre><code>chown user:group file.txt</code></pre>
 
-  <h2>7. Processes</h2>
-  <pre><code>ps -ef</code></pre>
-  <pre><code>top</code></pre>
-  <pre><code>kill -9 PID</code></pre>
+<h2>7. Processes</h2>
+<pre><code>ps -ef</code></pre>
+<pre><code>top</code></pre>
+<pre><code>kill -9 PID</code></pre>
+
+<hr>
+
+<!-- ADVANCED UNIX COMMANDS -->
+<h2>8. Advanced File & Directory Operations</h2>
+<pre><code>find /var/log -type f -mtime -1</code></pre>
+<pre><code>find / -type f -size +500M</code></pre>
+<pre><code>find /data -name "*.log" -exec rm -f {} \;</code></pre>
+<pre><code>rsync -avz /src/ /dest/</code></pre>
+<pre><code>rsync -avz --delete /src/ /dest/</code></pre>
+<pre><code>tar -czvf backup.tar.gz /data</code></pre>
+<pre><code>tar -xzvf backup.tar.gz</code></pre>
+<pre><code>du -sh * | sort -h</code></pre>
+<pre><code>df -hT</code></pre>
+
+<h2>9. Advanced Process Management</h2>
+<pre><code>ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu</code></pre>
+<pre><code>top -o %MEM</code></pre>
+<pre><code>htop</code></pre>
+<pre><code>kill -9 $(pidof java)</code></pre>
+<pre><code>pkill -f spark</code></pre>
+<pre><code>nohup python app.py &</code></pre>
+<pre><code>jobs -l</code></pre>
+<pre><code>fg %1</code></pre>
+
+<h2>10. Advanced Networking</h2>
+<pre><code>netstat -tulnp</code></pre>
+<pre><code>ss -tulnp</code></pre>
+<pre><code>curl -I https://google.com</code></pre>
+<pre><code>wget -c https://file.com/bigfile.iso</code></pre>
+<pre><code>ping -c 5 google.com</code></pre>
+<pre><code>traceroute google.com</code></pre>
+<pre><code>nslookup google.com</code></pre>
+<pre><code>dig google.com</code></pre>
+<pre><code>telnet host 8080</code></pre>
+
+<h2>11. Disk & Storage Management</h2>
+<pre><code>lsblk</code></pre>
+<pre><code>fdisk -l</code></pre>
+<pre><code>mount /dev/sdb1 /mnt/data</code></pre>
+<pre><code>umount /mnt/data</code></pre>
+<pre><code>lsof /mnt/data</code></pre>
+<pre><code>iostat -xz 1</code></pre>
+<pre><code>vmstat 1</code></pre>
+
+<h2>12. User & Permission Management</h2>
+<pre><code>chmod 4755 script.sh</code></pre>
+<pre><code>chown -R user:group /data</code></pre>
+<pre><code>useradd -m bharat</code></pre>
+<pre><code>passwd bharat</code></pre>
+<pre><code>visudo</code></pre>
+<pre><code>sudo -l</code></pre>
+
+<h2>13. Log Analysis</h2>
+<pre><code>tail -f /var/log/messages</code></pre>
+<pre><code>grep -R "ERROR" /var/log/</code></pre>
+<pre><code>grep -R "timeout" /var/log/app.log | wc -l</code></pre>
+<pre><code>awk '{print $1,$5}' /var/log/app.log</code></pre>
+<pre><code>sed -n '1,50p' file.log</code></pre>
+<pre><code>cut -d',' -f2 file.csv</code></pre>
+
+<h2>14. System Monitoring</h2>
+<pre><code>uptime</code></pre>
+<pre><code>dmesg | tail</code></pre>
+<pre><code>free -m</code></pre>
+<pre><code>sar -u 1 5</code></pre>
+<pre><code>sar -n DEV 1 5</code></pre>
+<pre><code>mpstat -P ALL 1</code></pre>
+
+<h2>15. Cron & Automation</h2>
+<pre><code>crontab -l</code></pre>
+<pre><code>crontab -e</code></pre>
+<pre><code>0 2 * * * /usr/bin/python3 /scripts/backup.py</code></pre>
+<pre><code>/etc/init.d/cron restart</code></pre>
+
+<h2>16. Package Management</h2>
+<pre><code>yum install httpd</code></pre>
+<pre><code>yum update</code></pre>
+<pre><code>apt-get install nginx</code></pre>
+<pre><code>apt-get update && apt-get upgrade</code></pre>
+
+<h2>17. Advanced Shell Scripting</h2>
+<pre><code>for i in *.log; do echo $i; done</code></pre>
+<pre><code>if [ -f file.txt ]; then echo "exists"; fi</code></pre>
+<pre><code>while read line; do echo $line; done &lt; file.txt</code></pre>
+<pre><code>export PATH=$PATH:/opt/bin</code></pre>
+
+<h2>18. Security Commands</h2>
+<pre><code>ssh-keygen -t rsa</code></pre>
+<pre><code>ssh-copy-id user@host</code></pre>
+<pre><code>chmod 600 ~/.ssh/id_rsa</code></pre>
+<pre><code>fail2ban-client status</code></pre>
+
+<h2>19. Advanced Tools</h2>
+<pre><code>tmux</code></pre>
+<pre><code>screen</code></pre>
+<pre><code>nc -lvp 4444</code></pre>
+<pre><code>strace -p PID</code></pre>
+<pre><code>lsof -i :8080</code></pre>
+<pre><code>fuser -k 8080/tcp</code></pre>
 
 </div>
 
