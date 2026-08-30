@@ -8,17 +8,14 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-
-      /* Light Mode Background – Corporate Library */
       background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f')
                   no-repeat center center fixed;
       background-size: cover;
-
       color: #fff;
       transition: background 0.4s, color 0.4s;
     }
 
-    /* Dark Mode Background – Moonlight Scene */
+    /* Dark Mode */
     .dark {
       background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')
                   no-repeat center center fixed !important;
@@ -38,6 +35,8 @@
       cursor: pointer;
       color: white;
       font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: background 0.2s ease;
     }
 
     #toggleDark:hover {
@@ -56,6 +55,40 @@
     .dark h1 {
       color: #00ffcc;
       text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    /* Dashboard Preview */
+    .dashboard-preview {
+      max-width: 700px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.75);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      color: #000;
+    }
+
+    .dashboard-preview h2 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      color: #0b1f3b;
+    }
+
+    .dashboard-preview a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0b1f3b;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .dark .dashboard-preview {
+      background: rgba(31,41,55,0.85);
+      color: #e0e6f0;
     }
 
     /* Search Area */
@@ -123,6 +156,14 @@
 
   <h1>Bharat's Data Engineering Commands Hub</h1>
 
+  <!-- DASHBOARD PREVIEW -->
+  <div class="dashboard-preview">
+    <h2>Data Engineering Q&A Dashboard</h2>
+    <p>Explore all topics: Hadoop, Spark, AWS, Databricks, Git, Python, Kafka, Airflow, EMR, Glue & more.</p>
+    <a href="dashboard.html">Open Dashboard</a>
+  </div>
+
+  <!-- SEARCH -->
   <div class="search-area">
     <input id="searchBox" placeholder="Search topics (HDFS, Spark, Scala...)" />
     <ul id="results"></ul>
@@ -144,26 +185,34 @@
       { name: "Spark", link: "Spark-Questions.html" },
       { name: "Scala", link: "scala-Questions.html" },
       { name: "Unix", link: "unix-Questions.html" },
-      { name: "Q&A Dashboard", link: "dashboard.html" },
-      { name: "AWS S3", link: "aws-s3.html" },
-      { name: "Databricks Commands", link: "databricks-commands.html" },
-      { name: "Hive Commands ", link: "hive-commands.html" },
+
+      /* Commands Pages */
       { name: "HDFS Commands", link: "hdfs-commands.html" },
-      { name: "Scala Commands", link: "scala-commands.html" },
+      { name: "Hive Commands", link: "hive-commands.html" },
       { name: "Sqoop Commands", link: "sqoop-commands.html" },
+      { name: "Scala Commands", link: "scala-commands.html" },
       { name: "Unix Commands", link: "unix-commands.html" },
       { name: "Kafka Commands", link: "kafka-commands.html" },
       { name: "Airflow Commands", link: "airflow-commands.html" },
       { name: "EMR Commands", link: "emr-commands.html" },
       { name: "Glue Commands", link: "glue-commands.html" },
+      { name: "Databricks Commands", link: "databricks-commands.html" },
+      { name: "AWS S3", link: "aws-s3.html" },
+
+      /* Git Pages */
       { name: "Git Commands", link: "git-commands.html" },
       { name: "Git Interview Questions", link: "git-interview-questions.html" },
       { name: "GitHub Actions Commands", link: "git-actions-commands.html" },
       { name: "Git Branching Strategy", link: "git-branching-strategy.html" },
       { name: "Git Troubleshooting Guide", link: "git-troubleshooting.html" },
       { name: "Git Cheat Sheet", link: "git-cheat-sheet.html" },
+
+      /* Python Pages */
       { name: "Python Cheat Sheet", link: "python-cheat-sheet.html" },
-      { name: "Python Commands", link: "python-commands.html" }
+      { name: "Python Commands", link: "python-commands.html" },
+
+      /* Dashboard */
+      { name: "Q&A Dashboard", link: "dashboard.html" }
     ];
 
     const searchBox = document.getElementById("searchBox");
