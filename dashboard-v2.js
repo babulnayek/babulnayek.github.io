@@ -1,0 +1,168 @@
+/* --------------------------------------------------
+   FULL DATA ENGINEERING Q&A DATASET
+   (You can later move this to questions.json)
+-------------------------------------------------- */
+const questions = [
+  // Hadoop Ecosystem
+  {
+    category: "hdfs",
+    question: "What is HDFS and why is it used?",
+    answer: "HDFS is a distributed file system designed to store massive datasets reliably across commodity hardware."
+  },
+  {
+    category: "mapreduce",
+    question: "What is MapReduce?",
+    answer: "MapReduce is a distributed processing model with two phases: Map (parallel processing) and Reduce (aggregation)."
+  },
+  {
+    category: "sqoop",
+    question: "What is Sqoop used for?",
+    answer: "Sqoop transfers data between Hadoop and relational databases using parallel import/export."
+  },
+  {
+    category: "hive",
+    question: "Difference between Hive and RDBMS?",
+    answer: "Hive is for batch analytics on large datasets; RDBMS is for OLTP transactions."
+  },
+  {
+    category: "pig",
+    question: "What is Pig Latin?",
+    answer: "Pig Latin is a high-level scripting language for analyzing large datasets on Hadoop."
+
+  },
+
+  // Spark & Scala
+  {
+    category: "spark",
+    question: "Difference between RDD, DataFrame, and Dataset?",
+    answer: "RDD: low-level, untyped. DataFrame: optimized, schema-based. Dataset: typed + optimized."
+  },
+  {
+    category: "scala",
+    question: "What are case classes in Scala?",
+    answer: "Case classes are immutable data holders with built-in pattern matching support."
+  },
+
+  // Unix
+  {
+    category: "unix",
+    question: "Find top 10 largest files in Unix?",
+    answer: "Use: find . -type f -exec ls -lh {} \\; | sort -k5 -h | tail -n 10"
+  },
+
+  // Cloud & Modern DE
+  {
+    category: "aws",
+    question: "What is AWS S3?",
+    answer: "S3 is Amazon’s scalable object storage service used for data lakes and backups."
+  },
+  {
+    category: "databricks",
+    question: "What is Databricks?",
+    answer: "Databricks is a unified analytics platform built on Apache Spark for big data and ML workloads."
+  },
+  {
+    category: "emr",
+    question: "What is EMR?",
+    answer: "Amazon EMR is a managed Hadoop/Spark cluster service for large-scale data processing."
+  },
+  {
+    category: "glue",
+    question: "What is AWS Glue?",
+    answer: "Glue is a serverless ETL service for data cataloging and transformation."
+  },
+
+  // DevOps & Tools
+  {
+    category: "git",
+    question: "What is Git?",
+    answer: "Git is a distributed version control system used for tracking code changes."
+  },
+  {
+    category: "python",
+    question: "What is Python used for in Data Engineering?",
+    answer: "Python is used for ETL, automation, APIs, data pipelines, and machine learning."
+  },
+  {
+    category: "kafka",
+    question: "What is Kafka?",
+    answer: "Kafka is a distributed streaming platform used for real-time data pipelines."
+  },
+  {
+    category: "airflow",
+    question: "What is Airflow?",
+    answer: "Airflow is a workflow orchestration tool used to schedule and manage data pipelines."
+  }
+];
+
+/* --------------------------------------------------
+   ELEMENTS
+-------------------------------------------------- */
+const qaContainer = document.getElementById("qaContainer");
+const categorySelect = document.getElementById("categorySelect");
+const searchInput = document.getElementById("searchInput");
+const themeToggle = document.getElementById("themeToggle");
+
+/* --------------------------------------------------
+   RENDER FUNCTION
+-------------------------------------------------- */
+function renderQuestions() {
+  const category = categorySelect.value;
+  const searchText = searchInput.value.toLowerCase();
+
+  qaContainer.innerHTML = "";
+
+  const filtered = questions
+    .filter(q => category === "all" || q.category === category)
+    .filter(q =>
+      q.question.toLowerCase().includes(searchText) ||
+      q.answer.toLowerCase().includes(searchText)
+    );
+
+  if (filtered.length === 0) {
+    qaContainer.innerHTML = `
+      <div class="qa-card" style="text-align:center;">
+        <div class="qa-question">No results found</div>
+        <div class="qa-answer">Try a different keyword or category.</div>
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach(q => {
+    const card = document.createElement("div");
+    card.className = "qa-card";
+
+    card.innerHTML = `
+      <div class="qa-category">${q.category.toUpperCase()}</div>
+      <div class="qa-question">${q.question}</div>
+      <div class="qa-answer">${q.answer}</div>
+    `;
+
+    qaContainer.appendChild(card);
+  });
+}
+
+/* --------------------------------------------------
+   INITIAL RENDER
+-------------------------------------------------- */
+renderQuestions();
+
+/* --------------------------------------------------
+   EVENTS
+-------------------------------------------------- */
+categorySelect.addEventListener("change", renderQuestions);
+searchInput.addEventListener("input", renderQuestions);
+
+/* --------------------------------------------------
+   THEME TOGGLE (Corporate → Glass → Dark Hacker)
+-------------------------------------------------- */
+let themeIndex = 0;
+const themes = ["", "theme-glass", "theme-dark"];
+const themeLabels = ["Corporate", "Glass", "Dark Hacker"];
+
+themeToggle.addEventListener("click", () => {
+  themeIndex = (themeIndex + 1) % themes.length;
+  document.body.className = themes[themeIndex];
+  themeToggle.textContent = `Theme: ${themeLabels[themeIndex]}`;
+});
