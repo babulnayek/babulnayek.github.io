@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f6f9;
+  color: #222;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: #0b1f3b;
+  color: #fff;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.controls select,
+.controls input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.controls button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #1f6feb;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.controls button:hover {
+  background: #255fd1;
+}
+
+.main {
+  flex: 1;
+  padding: 24px 32px;
+}
+
+.qa-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+/* Card */
+.qa-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  padding: 16px;
+  border-left: 4px solid #1f6feb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.qa-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.qa-category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.qa-question {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.qa-answer {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  padding: 12px 32px;
+  text-align: right;
+  font-size: 13px;
+  background: #e3e7ee;
+}
+
+/* Theme variants (we’ll use JS to toggle these later) */
+
+/* Glass UI */
+.theme-glass .main {
+  background: linear-gradient(135deg, #dde5ff, #f5f7ff);
+}
+
+.theme-glass .qa-card {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+}
+
+/* Dark Hacker */
+.theme-dark {
+  background: #050810;
+  color: #e0ffef;
+}
+
+.theme-dark .header {
+  background: #02040a;
+}
+
+.theme-dark .main {
+  background: radial-gradient(circle at top, #0b1f3b, #02040a);
+}
+
+.theme-dark .qa-card {
+  background: #050b16;
+  border-left-color: #00ff9a;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+
+.theme-dark .qa-question {
+  color: #e0ffef;
+}
+
+.theme-dark .qa-answer {
+  color: #b8e6d4;
+}
