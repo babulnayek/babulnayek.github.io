@@ -1,50 +1,144 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bharat's Website</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-image: url('https://picsum.photos/1200/800');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        color: white;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bharat's Data Engineering Hub</title>
 
-      .container {
-        background: rgba(0,0,0,0.6);
-        padding: 20px;
-        margin: 40px;
-        border-radius: 10px;
-      }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+      color: white;
+      transition: background 0.4s, color 0.4s;
+    }
 
-      ul li {
-        margin: 8px 0;
-      }
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.08);
+      padding: 30px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease;
+    }
 
-      a {
-        color: #00ffcc;
-        font-size: 18px;
-      }
-    </style>
-  </head>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-  <body>
-    <div class="container">
-      <h1>Welcome to Bharat's Website!</h1>
-      <p>Data Engineer.</p>
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
 
-      <ul>
-        <li><a href="https://babulnayek.github.io/hdfs-Questions.html">HDFS</a></li>
-        <li><a href="https://babulnayek.github.io/mapreduce-Questions.html">MAP-REDUCE</a></li>
-        <li><a href="https://babulnayek.github.io/sqoop-Questions.html">SQOOP</a></li>
-        <li><a href="https://babulnayek.github.io/hive-Questions.html">HIVE / BEELINE</a></li>
-        <li><a href="https://babulnayek.github.io/pig-Questions.html">PIG</a></li>
-        <li><a href="https://babulnayek.github.io/Spark-Questions.html">SPARK</a></li>
-        <li><a href="https://babulnayek.github.io/scala-Questions.html">SCALA</a></li>
-        <li><a href="https://babulnayek.github.io/unix-Questions.html">UNIX</a></li>
-      </ul>
-    </div>
-  </body>
+    p {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 12px 0;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    a {
+      color: #00e6b8;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #00ffaa;
+    }
+
+    /* Search Bar */
+    #searchBox {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    /* Dark Mode Toggle */
+    #toggleDark {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00e6b8;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    #toggleDark:hover {
+      background: #00ffaa;
+    }
+
+    .dark {
+      background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+      color: black;
+    }
+
+    .dark a {
+      color: #007777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="toggleDark">Dark Mode</button>
+
+  <div class="container">
+    <h1>Bharat's Data Engineering Hub</h1>
+    <p>Interview Questions • Big Data • Spark • Hadoop • Scala • Cloud</p>
+
+    <input id="searchBox" placeholder="Search Hadoop / Spark / Scala questions..." />
+
+    <ul id="links">
+      <li><a href="hdfs-Questions.html">HDFS</a></li>
+      <li><a href="mapreduce-Questions.html">MapReduce</a></li>
+      <li><a href="sqoop-Questions.html">Sqoop</a></li>
+      <li><a href="hive-Questions.html">Hive / Beeline</a></li>
+      <li><a href="pig-Questions.html">Pig</a></li>
+      <li><a href="Spark-Questions.html">Spark</a></li>
+      <li><a href="scala-Questions.html">Scala</a></li>
+      <li><a href="unix-Questions.html">Unix</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    document.getElementById("toggleDark").onclick = () => {
+      document.body.classList.toggle("dark");
+    };
+
+    // Search Filter
+    const searchBox = document.getElementById("searchBox");
+    const links = document.querySelectorAll("#links li");
+
+    searchBox.addEventListener("input", () => {
+      const text = searchBox.value.toLowerCase();
+      links.forEach(li => {
+        li.style.display = li.innerText.toLowerCase().includes(text) ? "block" : "none";
+      });
+    });
+  </script>
+
+</body>
 </html>
