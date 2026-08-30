@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hive Commands – Bharat's Data Engineering Hub</title>
+
+  <style>
+    body { margin:0; font-family:system-ui; background:#f4f6f9; color:#222; }
+    .header { background:#0b1f3b; color:white; padding:20px 40px; font-size:24px; font-weight:600; }
+    .container { max-width:900px; margin:40px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+    h2 { color:#0b1f3b; margin-top:30px; }
+    pre { background:#eef2f7; padding:14px; border-radius:8px; border-left:4px solid #1f6feb; }
+    .footer { text-align:center; padding:20px; color:#555; }
+    a { color:#1f6feb; text-decoration:none; }
+  </style>
+</head>
+
+<body>
+
+<div class="header">Hive Commands</div>
+
+<div class="container">
+
+<h2>1. Start Hive Shell</h2>
+<pre><code>hive</code></pre>
+
+<h2>2. Show Databases</h2>
+<pre><code>show databases;</code></pre>
+
+<h2>3. Create Database</h2>
+<pre><code>create database mydb;</code></pre>
+
+<h2>4. Use Database</h2>
+<pre><code>use mydb;</code></pre>
+
+<h2>5. Show Tables</h2>
+<pre><code>show tables;</code></pre>
+
+<h2>6. Create Table</h2>
+<pre><code>
+create table emp(id int, name string)
+row format delimited fields terminated by ',';
+</code></pre>
+
+<h2>7. Load Data</h2>
+<pre><code>load data local inpath 'file.csv' into table emp;</code></pre>
+
+<h2>8. Select Query</h2>
+<pre><code>select * from emp;</code></pre>
+
+<h2>9. Describe Table</h2>
+<pre><code>describe emp;</code></pre>
+
+<h2>10. Drop Table</h2>
+<pre><code>drop table emp;</code></pre>
+
+<h2>11. Create External Table</h2>
+<pre><code>
+create external table logs(line string)
+location '/data/logs/';
+</code></pre>
+
+<h2>12. Partition Table</h2>
+<pre><code>
+create table sales(id int, amount int)
+partitioned by (year int)
+row format delimited fields terminated by ',';
+</code></pre>
+
+<h2>13. Add Partition</h2>
+<pre><code>alter table sales add partition(year=2024);</code></pre>
+
+<h2>14. Hive Beeline</h2>
+<pre><code>beeline -u jdbc:hive2://localhost:10000</code></pre>
+
+</div>
+
+<div class="footer">
+  <a href="index.html">Back to Home</a>
+</div>
+
+</body>
+</html>
