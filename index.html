@@ -8,12 +8,23 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #f4f6f9;
+
+      /* Corporate Library Background */
+      background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') 
+                  no-repeat center center fixed;
+      background-size: cover;
+
       color: #222;
       transition: background 0.4s, color 0.4s;
     }
 
-    /* Header */
+    /* Dark Mode */
+    .dark {
+      background: #0b1f3b !important;
+      color: #e0e6f0;
+    }
+
+    /* Dark Mode Button */
     #toggleDark {
       position: fixed;
       top: 20px;
@@ -31,15 +42,20 @@
       background: #255fd1;
     }
 
-    /* Main Container */
+    /* Main Content Card */
     .container {
       max-width: 900px;
       margin: 60px auto;
-      background: white;
+      background: rgba(255,255,255,0.85);
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       animation: fadeIn 1.2s ease;
+    }
+
+    .dark .container {
+      background: rgba(17,24,39,0.85);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.6);
     }
 
     @keyframes fadeIn {
@@ -54,11 +70,19 @@
       color: #0b1f3b;
     }
 
+    .dark h1 {
+      color: #00ff9a;
+    }
+
     p {
       text-align: center;
       font-size: 18px;
       margin-bottom: 30px;
       color: #444;
+    }
+
+    .dark p {
+      color: #e0e6f0;
     }
 
     /* Search Bar */
@@ -69,6 +93,12 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       margin-bottom: 20px;
+    }
+
+    .dark #searchBox {
+      background: #1f2937;
+      color: white;
+      border: 1px solid #374151;
     }
 
     /* Links */
@@ -93,30 +123,8 @@
       color: #255fd1;
     }
 
-    /* Dark Mode */
-    .dark {
-      background: #0b1f3b;
-      color: #e0e6f0;
-    }
-
-    .dark .container {
-      background: #111827;
-      color: #e0e6f0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.6);
-    }
-
-    .dark h1 {
-      color: #00ff9a;
-    }
-
     .dark a {
       color: #00e6b8;
-    }
-
-    .dark #searchBox {
-      background: #1f2937;
-      color: white;
-      border: 1px solid #374151;
     }
   </style>
 </head>
