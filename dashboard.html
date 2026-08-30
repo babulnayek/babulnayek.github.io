@@ -5,47 +5,70 @@
   <title>Data Engineering Q&A Dashboard</title>
   <link rel="stylesheet" href="dashboard.css" />
 </head>
+
 <body>
   <div class="page">
+
+    <!-- HEADER -->
     <header class="header">
       <div class="logo">Bharat • Data Engineering Q&A</div>
+
       <div class="controls">
+
+        <!-- CATEGORY DROPDOWN (FULL UPDATED LIST) -->
         <select id="categorySelect">
           <option value="all">All Categories</option>
+
+          <!-- Hadoop Ecosystem -->
           <option value="hdfs">HDFS</option>
           <option value="mapreduce">MapReduce</option>
           <option value="sqoop">Sqoop</option>
           <option value="hive">Hive / Beeline</option>
           <option value="pig">Pig</option>
+
+          <!-- Spark & Scala -->
           <option value="spark">Spark</option>
           <option value="scala">Scala</option>
+
+          <!-- Unix -->
           <option value="unix">Unix</option>
+
+          <!-- Cloud & Modern DE -->
           <option value="aws">AWS S3</option>
           <option value="databricks">Databricks</option>
+          <option value="emr">EMR</option>
+          <option value="glue">Glue</option>
+
+          <!-- DevOps & Tools -->
           <option value="git">Git</option>
           <option value="python">Python</option>
           <option value="kafka">Kafka</option>
           <option value="airflow">Airflow</option>
-          <option value="emr">EMR</option>
-          <option value="glue">Glue</option>
         </select>
 
+        <!-- SEARCH BAR -->
         <input id="searchInput" placeholder="Search questions..." />
+
+        <!-- THEME TOGGLE -->
         <button id="themeToggle">Theme: Corporate</button>
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="main">
       <section id="qaContainer" class="qa-container">
-        <!-- Q&A cards will be injected here -->
+        <!-- Q&A cards will be injected here by dashboard.js -->
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       © Bharat • Data Engineering Interview Hub
     </footer>
+
   </div>
 
-  <script src="dashboard.js"></script>
+  <!-- JS (Rename to avoid GitHub Pages caching issues) -->
+  <script src="dashboard-v2.js"></script>
 </body>
 </html>
