@@ -23,7 +23,7 @@
       color: #e0e6f0;
     }
 
-    /* Top-right buttons container */
+    /* Top-right buttons */
     .top-buttons {
       position: fixed;
       top: 20px;
@@ -33,27 +33,9 @@
       z-index: 999;
     }
 
-    /* Dashboard Button */
-    #dashboardBtn {
-      background: #0b1f3b;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      text-decoration: none;
-      transition: background 0.2s ease;
-    }
-
-    #dashboardBtn:hover {
-      background: #133a6b;
-    }
-
-    /* Dark Mode Button */
-    #toggleDark {
+    /* Shared button style */
+    .top-buttons button,
+    .top-buttons a {
       background: #1f6feb;
       border: none;
       padding: 10px 20px;
@@ -61,11 +43,14 @@
       cursor: pointer;
       color: white;
       font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
       transition: background 0.2s ease;
     }
 
-    #toggleDark:hover {
+    .top-buttons button:hover,
+    .top-buttons a:hover {
       background: #255fd1;
     }
 
