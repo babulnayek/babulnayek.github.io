@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Engineering Q&A Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="logo">Bharat • Data Engineering Q&A</div>
+      <div class="controls">
+        <select id="categorySelect">
+          <option value="all">All Categories</option>
+          <option value="hdfs">HDFS</option>
+          <option value="mapreduce">MapReduce</option>
+          <option value="sqoop">Sqoop</option>
+          <option value="hive">Hive / Beeline</option>
+          <option value="pig">Pig</option>
+          <option value="spark">Spark</option>
+          <option value="scala">Scala</option>
+          <option value="unix">Unix</option>
+        </select>
+        <input id="searchInput" placeholder="Search questions..." />
+        <button id="themeToggle">Theme: Corporate</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section id="qaContainer" class="qa-container">
+        <!-- Q&A cards will be injected here -->
+      </section>
+    </main>
+
+    <footer class="footer">
+      © Bharat • Data Engineering Interview Hub
+    </footer>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
