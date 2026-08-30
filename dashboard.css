@@ -1,3 +1,6 @@
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -11,6 +14,9 @@ body {
   min-height: 100vh;
 }
 
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
 .header {
   display: flex;
   justify-content: space-between;
@@ -36,6 +42,7 @@ body {
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
+  background: #fff;
 }
 
 .controls button {
@@ -46,12 +53,16 @@ body {
   color: #fff;
   cursor: pointer;
   font-size: 14px;
+  transition: background 0.2s ease;
 }
 
 .controls button:hover {
   background: #255fd1;
 }
 
+/* --------------------------------------------------
+   MAIN CONTENT
+-------------------------------------------------- */
 .main {
   flex: 1;
   padding: 24px 32px;
@@ -63,7 +74,9 @@ body {
   gap: 16px;
 }
 
-/* Card */
+/* --------------------------------------------------
+   Q&A CARD
+-------------------------------------------------- */
 .qa-card {
   background: #ffffff;
   border-radius: 10px;
@@ -94,9 +107,12 @@ body {
 .qa-answer {
   font-size: 14px;
   color: #333;
+  line-height: 1.5;
 }
 
-/* Footer */
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
 .footer {
   padding: 12px 32px;
   text-align: right;
@@ -104,9 +120,11 @@ body {
   background: #e3e7ee;
 }
 
-/* Theme variants (we’ll use JS to toggle these later) */
+/* --------------------------------------------------
+   THEMES
+-------------------------------------------------- */
 
-/* Glass UI */
+/* GLASS UI */
 .theme-glass .main {
   background: linear-gradient(135deg, #dde5ff, #f5f7ff);
 }
@@ -116,7 +134,7 @@ body {
   backdrop-filter: blur(12px);
 }
 
-/* Dark Hacker */
+/* DARK HACKER */
 .theme-dark {
   background: #050810;
   color: #e0ffef;
@@ -142,4 +160,20 @@ body {
 
 .theme-dark .qa-answer {
   color: #b8e6d4;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE FIXES
+-------------------------------------------------- */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
